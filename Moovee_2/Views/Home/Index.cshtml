@@ -1,0 +1,217 @@
+﻿@model HomePageViewModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<head>
+	@*<link rel="stylesheet" href="~/css/accordion.css" />*@
+	<link rel="stylesheet" href="~/css/acco.css" />
+
+</head>
+
+
+<body>
+	<div class="jumbotron">
+		<div class="container text-center">
+			<h1>MOOVEEE DATABASE FORUM</h1>
+			<p>
+				<i>
+					Find everything about movies
+				</i>
+			</p>
+		</div>
+	</div>
+
+	@*<p>
+	<a asp-action="Create">Create New</a>
+	</p>*@
+
+	<div class="accordion-body">
+		<div class="accordion">
+			<div class="container active">
+				<div class="label">
+					<h3 class="ubuntu panel-title txlight"> Upcoming Movies <a data-toggle="collapse roleup" style="cursor:pointer" class="showHide" id="f-562c62355fb439e4daa35217d6700033e9d1abdc"><i class="fas fa-angle-double-up" id="roleup"></i></a></h3>
+				</div>
+				<div class="content">
+					<div class="row">
+						@foreach (var item in Model.Movies)
+						{
+							@if (DateTime.Now < item.DateRelease)
+							{
+								<div class="browse-movie-wrap col-xs-10 col-sm-4 col-md-100 col-lg-4">
+									<div class="card mb-3" style="max-width: 540px;">
+										<div class="row g-0">
+											<div class="col-md-12">
+												<div class="card-header text-white bg-info">
+													<p class="card-text">
+														<h5 class="card-title">
+															@item.Title
+														</h5>
+													</p>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<img src="~/img/posters/@item.ImageUrl" width="100%" alt="@item.Title">
+											</div>
+											<div class="col-md-6">
+												<div class="card-body">
+													<p class="card-text"><b>Category: </b>@item.Genre</p>
+													<p class="card-text"><b>Release Date: </b>@item.DateRelease.ToString("yyyy")</p>
+													<p class="card-text ">
+														<b>Status: </b>
+														@if (DateTime.Now >= item.DateRelease)
+														{
+															<span class="badge bg-success text-white">AVAILABLE</span>
+														}
+														else
+														{
+															<span class="badge bg-primary text-white">UPCOMING</span>
+														}
+													</p>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="card-footer ">
+													<p class="card-text">
+														<a class="btn btn-outline-primary float-right" asp-action="Details1" asp-route-id="@item.MovieId">
+															<i class="bi bi-eye-fill"></i> Show Details
+														</a>
+														<a class="icon" href="@item.ImdbUrl" title="IMDb" target="_blank"><img src="/img/logo/logo-imdb.svg" width="80" alt="IMDb" align="right" /></a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							}
+						}
+					</div>
+				</div>
+			</div>
+			<div class="container active">
+				<div class="label">
+					<h3 class="ubuntu panel-title txlight"> Hot Picks Movies <a data-toggle="collapse roleup" style="cursor:pointer" class="showHide" id="f-562c62355fb439e4daa35217d6700033e9d1abdc"><i class="fas fa-angle-double-up" id="roleup"></i></a></h3>
+				</div>
+				<div class="content">
+					<div class="row">
+						@foreach (var item in Model.Movies)
+						{
+							@if (DateTime.Now > item.DateRelease)
+							{
+								<div class="browse-movie-wrap col-xs-10 col-sm-4 col-md-100 col-lg-4">
+									<div class="card mb-3" style="max-width: 540px;">
+										<div class="row g-0">
+											<div class="col-md-12">
+												<div class="card-header text-white bg-info">
+													<p class="card-text">
+														<h5 class="card-title">
+															@item.Title
+														</h5>
+													</p>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<img src="~/img/posters/@item.ImageUrl" width="100%" alt="@item.Title">
+											</div>
+											<div class="col-md-6">
+												<div class="card-body">
+													<p class="card-text"><b>Category: </b>@item.Genre</p>
+													<p class="card-text"><b>Release Date: </b>@item.DateRelease.ToString("yyyy")</p>
+													<p class="card-text ">
+														<b>Status: </b>
+														@if (DateTime.Now >= item.DateRelease)
+														{
+															<span class="badge bg-success text-white">AVAILABLE</span>
+														}
+														else
+														{
+															<span class="badge bg-primary text-white">UPCOMING</span>
+														}
+													</p>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="card-footer ">
+													<p class="card-text">
+														<a class="btn btn-outline-primary float-right" asp-action="Details1" asp-route-id="@item.MovieId">
+															<i class="bi bi-eye-fill"></i> Show Details
+														</a>
+														<a class="icon" href="@item.ImdbUrl" title="IMDb" target="_blank"><img src="/img/logo/logo-imdb.svg" width="80" alt="IMDb" align="right" /></a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							}
+						}
+					</div>
+				</div>
+			</div>
+			<div class="container active">
+				<div class="label">
+					<h3 class="ubuntu panel-title txlight"> Hot Picks TV Shows <a data-toggle="collapse roleup" style="cursor:pointer" class="showHide" id="f-562c62355fb439e4daa35217d6700033e9d1abdc"><i class="fas fa-angle-double-up" id="roleup"></i></a></h3>
+				</div>
+				<div class="content">
+					<div class="row">
+						@foreach (var item in Model.TvShows)
+						{
+							<div class="browse-movie-wrap col-xs-10 col-sm-4 col-md-100 col-lg-4">
+
+								<div class="card mb-3" style="max-width: 540px;">
+									<div class="row g-0">
+										<div class="col-md-12">
+											<div class="card-header text-white bg-info">
+												<p class="card-text">
+													<h5 class="card-title">
+														@item.Title
+													</h5>
+												</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<img src="~/img/posters/@item.ImageUrl" width="100%" alt="@item.Title">
+										</div>
+										<div class="col-md-6">
+											<div class="card-body">
+												<p class="card-text"><b>Category: </b>@item.Genre</p>
+												<p class="card-text"><b>Release Date: </b>@item.DateRelease.ToString("yyyy")</p>
+												<p class="card-text ">
+													<b>Status: </b>
+													@if (DateTime.Now >= item.DateRelease)
+													{
+														<span class="badge bg-success text-white">AVAILABLE</span>
+													}
+													else
+													{
+														<span class="badge bg-primary text-white">UPCOMING</span>
+													}
+												</p>
+
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="card-footer ">
+												<p class="card-text">
+													<a class="btn btn-outline-primary float-right" asp-action="Details2" asp-route-id="@item.TvShowId">
+														<i class="bi bi-eye-fill"></i> Show Details
+													</a>
+													<a class="icon" href="@item.ImdbUrl" title="IMDb" target="_blank"><img src="/img/logo/logo-imdb.svg" width="80" alt="IMDb" align="right" /></a>
+												</p>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="~/js/acco.js" type="text/javascript"></script>
+</body>
+

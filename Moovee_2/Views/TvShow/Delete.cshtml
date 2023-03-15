@@ -1,0 +1,19 @@
+﻿@model Moovee_2.Models.TvShow
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Are you sure you want to delete this tv-show?</h3>
+<div>
+    <h2 style="color:darkmagenta"><strong>@Model.Title</strong></h2>
+    <hr />
+
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TvShowId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </form>
+</div>

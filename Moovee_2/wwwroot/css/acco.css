@@ -1,0 +1,66 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+.accordion {
+	width: 100%;
+	margin: 90px auto;
+	color: black;
+	background-color: white;
+	padding: 18px;
+	text-align: left;
+	transition: 0.8s;
+	cursor: pointer;
+}
+
+	.accordion .label:hover {
+		background-color: lightpink;
+	}
+
+	.accordion .container {
+		position: relative;
+		margin: 10px 10px;
+	}
+
+	.accordion .label {
+		position: relative;
+		padding: 10px 0;
+		font-size: 30px;
+		color: black;
+		cursor: pointer;
+		padding: 10px 10px 10px 10px;
+		border-radius: 20px 50px;
+	}
+
+		.accordion .label::before {
+			content: "\1F31A";
+			position: absolute;
+			top: 50%;
+			right: 5px;
+			font-size: 30px;
+			transform: translateY(-50%);
+		}
+
+	.accordion .content {
+		position: relative;
+		background: white;
+		height: 0;
+		font-size: 20px;
+		text-align: justify;
+		/*width: 780px;*/
+		width:100%;
+		overflow: hidden;
+		transition: 0.5s;
+		margin:5px 0px 5px 0px;
+	}
+
+	.accordion .container.active .content {
+		height: fit-content;
+		padding: 0 18px;
+		background-color: white;
+		overflow: hidden;
+		transition: max-height 0.5s ease-out;
+	}
+
+	.accordion .container.active .label::before {
+		content: "\1F31D";
+		font-size: 30px;
+	}

@@ -1,0 +1,151 @@
+﻿@model IEnumerable<Moovee_2.Models.TvShow>
+
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+	<p>
+		<br>
+		<a asp-action="Create" class="btn btn-danger btn-lg">Create New TV Show</a>
+	</p>
+
+	<table class="table table-hover">
+		<thead>
+			<tr class="table-secondary">
+				<th>
+					@Html.DisplayNameFor(model => model.Title)
+				</th>
+
+				<th>
+					@*@Html.DisplayNameFor(model => model.DateRelease)*@
+					Status
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Genre)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.MainActress)
+				</th>
+				<th>
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr class="table-secondary">
+					<td>
+						@Html.DisplayFor(modelItem => item.Title)
+					</td>
+
+					<td>
+						@*@Html.DisplayFor(modelItem => item.DateRelease)*@
+						@if (DateTime.Now >= item.DateRelease)
+						{
+							<span class="badge bg-success text-white">AVAILABLE</span>
+						}
+						else
+						{
+							<span class="badge bg-primary text-white">UPCOMING</span>
+						}
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Genre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.MainActress)
+					</td>
+					<td>
+						<a asp-controller="TvShow" asp-action="Update" asp-route-id="@item.TvShowId" class="btn btn-secondary">Edit</a> |
+						<a asp-controller="TvShow" asp-action="Delete" asp-route-id="@item.TvShowId" class="btn btn-danger">Delete</a>
+					</td>
+
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@*@Html.DisplayNameFor(model => model.ImageUrl)*@
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Title)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Description)
+				</th>
+
+				<th>
+					@Html.DisplayNameFor(model => model.Length)
+				</th>
+				<th>
+					@*@Html.DisplayNameFor(model => model.DateRelease)*@
+					Status
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Genre)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.MainActress)
+				</th>
+				<th>
+					@*@Html.DisplayNameFor(model => model.ImdbUrl)*@
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+
+						@*@Html.DisplayFor(modelItem => item.ImageUrl)*@
+
+						<a asp-controller="Home" asp-action="Details2" asp-route-id="@item.TvShowId">
+							<img src="~/img/posters/@Html.DisplayFor(modelItem => item.ImageUrl)" style="max-width:100px" />
+						</a>
+
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Title)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Description)
+					</td>
+
+					<td>
+						@Html.DisplayFor(modelItem => item.Length) min.
+					</td>
+					<td>
+						@*@Html.DisplayFor(modelItem => item.DateRelease)*@
+						@if (DateTime.Now >= item.DateRelease)
+						{
+							<span class="badge bg-success text-white">AVAILABLE</span>
+						}
+						else
+						{
+							<span class="badge bg-primary text-white">UPCOMING</span>
+						}
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Genre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.MainActress)
+					</td>
+					<td>
+						@*@Html.DisplayFor(modelItem => item.ImdbUrl)*@
+						<a class="icon" href="@item.ImdbUrl" title="IMDb" target="_blank"><img src="/img/logo/logo-imdb.svg" width="80" alt="IMDb" align="right" /></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+}
