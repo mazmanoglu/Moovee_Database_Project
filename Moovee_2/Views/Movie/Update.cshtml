@@ -26,7 +26,8 @@
             <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label"></label>
                 @*<input asp-for="ImageUrl" class="form-control" />*@
-                <input asp-for="ImageUrl" class="form-control" type="file" id="myFile" placeholder="@Model.ImageUrl" />
+            <input asp-for="ImageUrl" class="form-control"  placeholder="@Model.ImageUrl" />
+            <!-- type="file" id="myFile" -->
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,6 +50,15 @@
                 <input asp-for="MainActress" class="form-control" />
                 <span asp-validation-for="MainActress" class="text-danger"></span>
             </div>
+
+         <div class="form-group">
+            <label asp-for="ActressImage" class="control-label"></label>
+            <input asp-for="ActressImage" class="form-control" placeholder="@Model.ActressImage" />
+            <!-- type="file" id="myFile" -->
+            <span asp-validation-for="ActressImage" class="text-danger"></span>
+         </div>
+
+
             <div class="form-group">
                 <label asp-for="ImdbUrl" class="control-label"></label>
                 <input asp-for="ImdbUrl" class="form-control" />

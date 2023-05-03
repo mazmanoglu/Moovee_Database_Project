@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moovee", "Moovee_2\Moovee.csproj", "{D34A32A7-413C-49B1-A7FE-8FAB6F796953}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moovee_2", "Moovee_2\Moovee_2.csproj", "{D34A32A7-413C-49B1-A7FE-8FAB6F796953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

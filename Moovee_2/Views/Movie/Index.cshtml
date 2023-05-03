@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<Moovee_2.Models.Movie>
 
+@{
+	ViewData["Title"] = "Movies";
+}
 
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {

@@ -60,14 +60,9 @@
 													<p class="card-text"><b>Release Date: </b>@item.DateRelease.ToString("yyyy")</p>
 													<p class="card-text ">
 														<b>Status: </b>
-														@if (DateTime.Now >= item.DateRelease)
-														{
-															<span class="badge bg-success text-white">AVAILABLE</span>
-														}
-														else
-														{
-															<span class="badge bg-primary text-white">UPCOMING</span>
-														}
+
+														<span class="badge bg-primary text-white">UPCOMING</span>
+
 													</p>
 												</div>
 											</div>
@@ -120,14 +115,7 @@
 													<p class="card-text"><b>Release Date: </b>@item.DateRelease.ToString("yyyy")</p>
 													<p class="card-text ">
 														<b>Status: </b>
-														@if (DateTime.Now >= item.DateRelease)
-														{
-															<span class="badge bg-success text-white">AVAILABLE</span>
-														}
-														else
-														{
-															<span class="badge bg-primary text-white">UPCOMING</span>
-														}
+														<span class="badge bg-success text-white">AVAILABLE</span>
 													</p>
 												</div>
 											</div>
@@ -179,16 +167,8 @@
 												<p class="card-text"><b>Release Date: </b>@item.DateRelease.ToString("yyyy")</p>
 												<p class="card-text ">
 													<b>Status: </b>
-													@if (DateTime.Now >= item.DateRelease)
-													{
-														<span class="badge bg-success text-white">AVAILABLE</span>
-													}
-													else
-													{
-														<span class="badge bg-primary text-white">UPCOMING</span>
-													}
+													<span class="badge bg-success text-white">AVAILABLE</span>
 												</p>
-
 											</div>
 										</div>
 										<div class="col-md-12">
